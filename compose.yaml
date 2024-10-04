@@ -1,0 +1,20 @@
+services:
+  backend:
+    build:
+      context: backend/
+    container_name: express-backend
+    ports:
+      - "3005:3005"
+
+  frontend:
+    build:
+      context: frontend/store-front/
+    container_name: next-frontend
+    ports:
+      - "3000:3000"
+
+  database:
+    image: redis
+    container_name: redis-database
+    expose:
+      - 6379
