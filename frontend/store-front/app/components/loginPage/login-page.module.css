@@ -1,0 +1,196 @@
+/* Background for the page */
+.pageContainer {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f5;
+    background: linear-gradient(135deg, #bbdfff 0%, #e2caff 100%);
+}
+
+/* Container for the left and right sides */
+.loginContainer {
+    display: flex;
+    width: 90vw;
+    max-width: 1200px;
+    height: 50vh;
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(15px);
+    border-radius: 2em;
+    overflow: hidden;
+    animation: floatIn 1s ease-out;
+    border: 1px solid #ffffff67;
+}
+
+/* Left side with gradient background */
+.leftSide {
+    flex: 1;
+    background: linear-gradient(135deg, #e6925a 0%, #9c53ef 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 2em;
+    transition: flex 1.5s ease; /* Smooth transition for expansion */
+}
+
+/* Right side holding the form */
+.rightSide {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2em;
+    background: none;
+    transition: opacity 0.25s ease-in; /* Shortened fade-out duration */
+    pointer-events: all; /* Enable interaction by default */
+}
+
+/* Welcome text on the left side */
+.welcomeText {
+    font-size: 2.5em;
+    color: #ffffff;
+    margin: 0;
+}
+
+.welcomeSubText {
+    font-size: 1.2em;
+    color: #ffffff;
+    margin-top: 0.5em;
+    text-align: center;
+}
+
+/* Login form */
+.loginForm {
+    width: 100%;
+    max-width: 400px;
+    padding: 2em;
+    animation: fadeIn 1s ease;
+}
+
+/* Title */
+.title {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 1.5em;
+}
+
+/* Input group styling */
+.inputGroup {
+    margin-bottom: 1.5em;
+}
+
+.label {
+    display: block;
+    font-size: 1em;
+    color: #333;
+    margin-bottom: 0.5em;
+}
+
+.input {
+    width: 100%;
+    padding: 0.75em;
+    border-radius: 10px;
+    border: none;
+    background: rgba(255, 255, 255, 0.3);
+    color: #333;
+    outline: none;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+.input:focus {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Button styling */
+.button {
+    width: 100%;
+    padding: 0.75em;
+    background-color: #ae8cfd;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.2em;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.button:hover {
+    background-color: #9131eb;
+    transform: scale(1.05);
+}
+
+/* Loading animation container */
+.loadingContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Loading circle */
+.loader {
+    margin-top: 2em; /* Margin added for spacing */
+    border: 6px solid #f3f3f3; /* Light grey */
+    border-top: 6px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+}
+
+/* Animation for spinning loader */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Expand left side animation */
+
+.expandLeft .leftSide {
+    flex: 2; /* Expand to cover the right side */
+    transition: flex 2.5s ease; /* Smooth and slower expansion */
+}
+
+.expandLeft .rightSide {
+    opacity: 0;
+    pointer-events: none; /* Disable interaction when faded out */
+}
+
+/* Subtle animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes floatIn {
+    from {
+        transform: translateY(75px);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .loginContainer {
+        flex-direction: column; /* Stack on smaller screens */
+        height: auto; /* Allow height to adjust */
+    }
+
+    .leftSide, .rightSide {
+        flex: none; /* Allow them to size to content */
+        width: 100%; /* Full width on mobile */
+    }
+}
